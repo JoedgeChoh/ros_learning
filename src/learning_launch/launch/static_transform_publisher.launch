@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="world_base_link" pkg="tf" type="static_transform_publisher" args="1 1 1 1.57 1.57 0 world base_link 100"/>
+    <node name="rviz" pkg="rviz" type="rviz"/>
+</launch>
