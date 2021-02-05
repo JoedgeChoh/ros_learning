@@ -2,4 +2,6 @@
 <launch>
     <node name="turtle_pub" pkg="learning_topic" type="velocity_publisher" output="screen"/>
     <node name="pose_subscriber" pkg="learning_topic" type="pose_subscriber" output="screen"/>
+    <node name="turtlesim" pkg="turtlesim" type="turtlesim_node" />
+
 </launch>

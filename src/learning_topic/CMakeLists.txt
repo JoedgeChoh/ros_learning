@@ -149,8 +149,8 @@ add_executable(person_subscriber src/person_subscriber.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(person_publisher ${PROJECT_NAME}_msgs_cpp)
-add_dependencies(person_subscriber ${PROJECT_NAME}_msgs_cpp)
+add_dependencies(person_publisher ${PROJECT_NAME}_gencpp)
+add_dependencies(person_subscriber ${PROJECT_NAME}_gencpp)
 
 
 ## Specify libraries to link a library or executable target against
