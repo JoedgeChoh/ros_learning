@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="turtle_pub" pkg="learning_topic" type="velocity_publisher" output="screen"/>
+    <node name="pose_subscriber" pkg="learning_topic" type="pose_subscriber" output="screen"/>
+</launch>

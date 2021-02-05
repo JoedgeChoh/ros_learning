@@ -149,8 +149,8 @@ add_executable(person_subscriber src/person_subscriber.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(person_publisher ${PROJECT_NAME}_generate_message_cpp)
-add_dependencies(person_subscriber ${PROJECT_NAME}_generate_message_cpp)
+add_dependencies(person_publisher ${PROJECT_NAME}_msgs_cpp)
+add_dependencies(person_subscriber ${PROJECT_NAME}_msgs_cpp)
 
 
 ## Specify libraries to link a library or executable target against
@@ -177,9 +177,9 @@ target_link_libraries(person_subscriber ${catkin_LIBRARIES})
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
-# install(TARGETS ${PROJECT_NAME}_node
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+install(TARGETS velocity_publisher pose_subscriber person_publisher person_subscriber
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark libraries for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_libraries.html
@@ -195,6 +195,9 @@ target_link_libraries(person_subscriber ${catkin_LIBRARIES})
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 # )
+install(DIRECTORY launch
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES

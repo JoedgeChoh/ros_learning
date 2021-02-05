@@ -6,7 +6,7 @@ void personInfoCallback(const learning_topic::Person::ConstPtr& msg) {
 }
 int main(int argc, char** argv) {
     ros::init(argc,argv,"person_subsriber");
-    ros::NodeHandle n;
+    ros::NodeHandle n("~");
     ros::Subscriber sub = n.subscribe("/person_info",10,personInfoCallback);
     ros::spin();
     return 0;
