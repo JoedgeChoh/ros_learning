@@ -5,4 +5,6 @@
           AGE
           SEX-VAL
           SEX
+          COUNT-VAL
+          COUNT
 ))

@@ -21,6 +21,7 @@ class Person {
       this.name = null;
       this.age = null;
       this.sex = null;
+      this.count = null;
     }
     else {
       if (initObj.hasOwnProperty('name')) {
@@ -41,6 +42,12 @@ class Person {
       else {
         this.sex = 0;
       }
+      if (initObj.hasOwnProperty('count')) {
+        this.count = initObj.count
+      }
+      else {
+        this.count = 0;
+      }
     }
   }
 
@@ -52,6 +59,8 @@ class Person {
     bufferOffset = _serializer.uint8(obj.age, buffer, bufferOffset);
     // Serialize message field [sex]
     bufferOffset = _serializer.uint8(obj.sex, buffer, bufferOffset);
+    // Serialize message field [count]
+    bufferOffset = _serializer.uint8(obj.count, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -65,13 +74,15 @@ class Person {
     data.age = _deserializer.uint8(buffer, bufferOffset);
     // Deserialize message field [sex]
     data.sex = _deserializer.uint8(buffer, bufferOffset);
+    // Deserialize message field [count]
+    data.count = _deserializer.uint8(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
     let length = 0;
     length += object.name.length;
-    return length + 6;
+    return length + 7;
   }
 
   static datatype() {
@@ -81,7 +92,7 @@ class Person {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'b3f7ec37d11629ec3010e27635cf22a9';
+    return 'fe51419f1d96189925234ca23defacf0';
   }
 
   static messageDefinition() {
@@ -90,6 +101,7 @@ class Person {
     string name
     uint8 age
     uint8 sex
+    uint8 count
     
     uint8 unknown = 0
     uint8 male = 1
@@ -125,6 +137,13 @@ class Person {
     }
     else {
       resolved.sex = 0
+    }
+
+    if (msg.count !== undefined) {
+      resolved.count = msg.count;
+    }
+    else {
+      resolved.count = 0
     }
 
     return resolved;

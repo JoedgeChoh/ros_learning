@@ -67,14 +67,14 @@ set(learning_launch_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(learning_launch_SOURCE_PREFIX /home/zhuhe/program/ros_learning/src/learning_launch)
-  set(learning_launch_DEVEL_PREFIX /home/zhuhe/program/ros_learning/devel)
+  set(learning_launch_SOURCE_PREFIX /home/zhuhe/zhuhe/ros_learning/src/learning_launch)
+  set(learning_launch_DEVEL_PREFIX /home/zhuhe/zhuhe/ros_learning/devel)
   set(learning_launch_INSTALL_PREFIX "")
   set(learning_launch_PREFIX ${learning_launch_DEVEL_PREFIX})
 else()
   set(learning_launch_SOURCE_PREFIX "")
   set(learning_launch_DEVEL_PREFIX "")
-  set(learning_launch_INSTALL_PREFIX /home/zhuhe/program/ros_learning/install)
+  set(learning_launch_INSTALL_PREFIX /home/zhuhe/zhuhe/ros_learning/install)
   set(learning_launch_PREFIX ${learning_launch_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/zhuhe/program/ros_learning/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/zhuhe/zhuhe/ros_learning/install/lib;/home/zhuhe/zhuhe/ros_learning/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

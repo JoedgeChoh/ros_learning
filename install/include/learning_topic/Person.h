@@ -26,12 +26,14 @@ struct Person_
   Person_()
     : name()
     , age(0)
-    , sex(0)  {
+    , sex(0)
+    , count(0)  {
     }
   Person_(const ContainerAllocator& _alloc)
     : name(_alloc)
     , age(0)
-    , sex(0)  {
+    , sex(0)
+    , count(0)  {
   (void)_alloc;
     }
 
@@ -45,6 +47,9 @@ struct Person_
 
    typedef uint8_t _sex_type;
   _sex_type sex;
+
+   typedef uint8_t _count_type;
+  _count_type count;
 
 
 
@@ -99,7 +104,8 @@ bool operator==(const ::learning_topic::Person_<ContainerAllocator1> & lhs, cons
 {
   return lhs.name == rhs.name &&
     lhs.age == rhs.age &&
-    lhs.sex == rhs.sex;
+    lhs.sex == rhs.sex &&
+    lhs.count == rhs.count;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -156,12 +162,12 @@ struct MD5Sum< ::learning_topic::Person_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "b3f7ec37d11629ec3010e27635cf22a9";
+    return "fe51419f1d96189925234ca23defacf0";
   }
 
   static const char* value(const ::learning_topic::Person_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xb3f7ec37d11629ecULL;
-  static const uint64_t static_value2 = 0x3010e27635cf22a9ULL;
+  static const uint64_t static_value1 = 0xfe51419f1d961899ULL;
+  static const uint64_t static_value2 = 0x25234ca23defacf0ULL;
 };
 
 template<class ContainerAllocator>
@@ -183,6 +189,7 @@ struct Definition< ::learning_topic::Person_<ContainerAllocator> >
     return "string name\n"
 "uint8 age\n"
 "uint8 sex\n"
+"uint8 count\n"
 "\n"
 "uint8 unknown = 0\n"
 "uint8 male = 1\n"
@@ -210,6 +217,7 @@ namespace serialization
       stream.next(m.name);
       stream.next(m.age);
       stream.next(m.sex);
+      stream.next(m.count);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -234,6 +242,8 @@ struct Printer< ::learning_topic::Person_<ContainerAllocator> >
     Printer<uint8_t>::stream(s, indent + "  ", v.age);
     s << indent << "sex: ";
     Printer<uint8_t>::stream(s, indent + "  ", v.sex);
+    s << indent << "count: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.count);
   }
 };
 

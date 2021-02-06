@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="a_string" value="global_value_by_launch"/>
+  <group ns="namespace">
+  <node name="node_name" pkg="learning_param" type="param_cpp" output="screen">
+    <param name="a_string" value="local_value_by_launch"/>
+  </node>
+  </group>
+</launch>

@@ -141,6 +141,7 @@ add_executable(velocity_publisher src/turtle_pub.cpp)
 add_executable(pose_subscriber src/pose_subscriber.cpp)
 add_executable(person_publisher src/person_publisher.cpp)
 add_executable(person_subscriber src/person_subscriber.cpp)
+# add_executable(param_cpp src/param.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -161,6 +162,7 @@ target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
 target_link_libraries(pose_subscriber ${catkin_LIBRARIES})
 target_link_libraries(person_publisher ${catkin_LIBRARIES})
 target_link_libraries(person_subscriber ${catkin_LIBRARIES})
+# target_link_libraries(param_cpp ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############
@@ -177,7 +179,8 @@ target_link_libraries(person_subscriber ${catkin_LIBRARIES})
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
-install(TARGETS velocity_publisher pose_subscriber person_publisher person_subscriber
+install(TARGETS velocity_publisher pose_subscriber person_publisher
+  person_subscriber
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

@@ -23,7 +23,7 @@
 (defconstant learning_topic::Person::*FEMALE* 2)
 (defclass learning_topic::Person
   :super ros::object
-  :slots (_name _age _sex ))
+  :slots (_name _age _sex _count ))
 
 (defmethod learning_topic::Person
   (:init
@@ -31,11 +31,13 @@
     ((:name __name) "")
     ((:age __age) 0)
     ((:sex __sex) 0)
+    ((:count __count) 0)
     )
    (send-super :init)
    (setq _name (string __name))
    (setq _age (round __age))
    (setq _sex (round __sex))
+   (setq _count (round __count))
    self)
   (:name
    (&optional __name)
@@ -46,6 +48,9 @@
   (:sex
    (&optional __sex)
    (if __sex (setq _sex __sex)) _sex)
+  (:count
+   (&optional __count)
+   (if __count (setq _count __count)) _count)
   (:serialization-length
    ()
    (+
@@ -54,6 +59,8 @@
     ;; uint8 _age
     1
     ;; uint8 _sex
+    1
+    ;; uint8 _count
     1
     ))
   (:serialize
@@ -66,6 +73,8 @@
        (write-byte _age s)
      ;; uint8 _sex
        (write-byte _sex s)
+     ;; uint8 _count
+       (write-byte _count s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -76,16 +85,19 @@
      (setq _age (sys::peek buf ptr- :char)) (incf ptr- 1)
    ;; uint8 _sex
      (setq _sex (sys::peek buf ptr- :char)) (incf ptr- 1)
+   ;; uint8 _count
+     (setq _count (sys::peek buf ptr- :char)) (incf ptr- 1)
    ;;
    self)
   )
 
-(setf (get learning_topic::Person :md5sum-) "b3f7ec37d11629ec3010e27635cf22a9")
+(setf (get learning_topic::Person :md5sum-) "fe51419f1d96189925234ca23defacf0")
 (setf (get learning_topic::Person :datatype-) "learning_topic/Person")
 (setf (get learning_topic::Person :definition-)
       "string name
 uint8 age
 uint8 sex
+uint8 count
 
 uint8 unknown = 0
 uint8 male = 1
@@ -97,6 +109,6 @@ uint8 female = 2
 
 
 
-(provide :learning_topic/Person "b3f7ec37d11629ec3010e27635cf22a9")
+(provide :learning_topic/Person "fe51419f1d96189925234ca23defacf0")
 
 

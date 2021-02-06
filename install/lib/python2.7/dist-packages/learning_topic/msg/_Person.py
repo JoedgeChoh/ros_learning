@@ -8,12 +8,13 @@ import struct
 
 
 class Person(genpy.Message):
-  _md5sum = "b3f7ec37d11629ec3010e27635cf22a9"
+  _md5sum = "fe51419f1d96189925234ca23defacf0"
   _type = "learning_topic/Person"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """string name
 uint8 age
 uint8 sex
+uint8 count
 
 uint8 unknown = 0
 uint8 male = 1
@@ -26,8 +27,8 @@ uint8 female = 2
   male = 1
   female = 2
 
-  __slots__ = ['name','age','sex']
-  _slot_types = ['string','uint8','uint8']
+  __slots__ = ['name','age','sex','count']
+  _slot_types = ['string','uint8','uint8','uint8']
 
   def __init__(self, *args, **kwds):
     """
@@ -37,7 +38,7 @@ uint8 female = 2
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       name,age,sex
+       name,age,sex,count
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -52,10 +53,13 @@ uint8 female = 2
         self.age = 0
       if self.sex is None:
         self.sex = 0
+      if self.count is None:
+        self.count = 0
     else:
       self.name = ''
       self.age = 0
       self.sex = 0
+      self.count = 0
 
   def _get_types(self):
     """
@@ -76,7 +80,7 @@ uint8 female = 2
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_2B().pack(_x.age, _x.sex))
+      buff.write(_get_struct_3B().pack(_x.age, _x.sex, _x.count))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -99,8 +103,8 @@ uint8 female = 2
         self.name = str[start:end]
       _x = self
       start = end
-      end += 2
-      (_x.age, _x.sex,) = _get_struct_2B().unpack(str[start:end])
+      end += 3
+      (_x.age, _x.sex, _x.count,) = _get_struct_3B().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -120,7 +124,7 @@ uint8 female = 2
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
       _x = self
-      buff.write(_get_struct_2B().pack(_x.age, _x.sex))
+      buff.write(_get_struct_3B().pack(_x.age, _x.sex, _x.count))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -144,8 +148,8 @@ uint8 female = 2
         self.name = str[start:end]
       _x = self
       start = end
-      end += 2
-      (_x.age, _x.sex,) = _get_struct_2B().unpack(str[start:end])
+      end += 3
+      (_x.age, _x.sex, _x.count,) = _get_struct_3B().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -154,9 +158,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2B = None
-def _get_struct_2B():
-    global _struct_2B
-    if _struct_2B is None:
-        _struct_2B = struct.Struct("<2B")
-    return _struct_2B
+_struct_3B = None
+def _get_struct_3B():
+    global _struct_3B
+    if _struct_3B is None:
+        _struct_3B = struct.Struct("<3B")
+    return _struct_3B
