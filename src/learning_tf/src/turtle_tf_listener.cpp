@@ -22,13 +22,13 @@ int main(int argc,char** argv) {
     ros::init(argc,argv,"my_tf_listener");
     ros::NodeHandle n;
 
-    //请求产生turtle2
-    ros::service::waitForService("/Spawn");
+     //请求产生turtle2
+    ros::service::waitForService("/spawn");
     ros::ServiceClient add_turtle = n.serviceClient<turtlesim::Spawn>("/spawn");
     turtlesim::Spawn srv;
-   // srv.x = 2.0;
-   // srv.y = 2.0;
-   // srv.name = "turtle2";
+    srv.request.x = 2.0;
+    srv.request.y = 2.0;
+    srv.request.name = "turtle2";
     add_turtle.call(srv);
 
     // 创建发布器

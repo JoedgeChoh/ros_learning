@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="sim" pkg="turtlesim" type="turtlesim_node"/>
+  <node name="teleop" pkg="turtlesim" type="turtle_teleop_key"/>
+  <node name="tf_broadcast_1" pkg="learning_tf" type="turtle_tf_broadcaster" args="turtle1"/>
+  <node name="tf_broadcast_2" pkg="learning_tf" type="turtle_tf_broadcaster" args="turtle2"/>
+  <node name="tf_listen" pkg="learning_tf" type="turtle_tf_listener"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find learning_tf)/rviz/tf.rviz"/>
+
+  
+</launch>

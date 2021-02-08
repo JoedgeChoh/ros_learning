@@ -1,15 +1,17 @@
 //topic name "/person_info",style:"learning_topic/Person"
 #include<ros/ros.h>
 #include "learning_topic/Person.h"
+#include <ros/param.h>
 
 int main(int argc,char** argv) {
     ros::init(argc,argv,"person_publisher");
     ros::NodeHandle n;
+    int count ;
+    n.getParam("count",count);
     ros::Publisher pub = n.advertise<learning_topic::Person>("person_info",10);
     ros::Rate loop_rate(1);
-    int count = 0;
     learning_topic::Person person;
-    person.count=0;
+    person.count=count;
     while(ros::ok) {
         person.name = "zhuhe";
         person.age = 28;

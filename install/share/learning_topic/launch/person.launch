@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch >
+  <param name="count" type="int" value="3" />
   <node name="person_puslisher" pkg="learning_topic" type="person_publisher" output="screen"/>
   <node name="person_subscriber" pkg="learning_topic" type="person_subscriber" output="screen"/>
 </launch>

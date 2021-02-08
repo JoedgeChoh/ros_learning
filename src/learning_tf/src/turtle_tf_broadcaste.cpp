@@ -1,5 +1,5 @@
 #include<ros/ros.h>
-#include<turtlesim/Pose.h>
+#include<turtlesim/Pose.h> // turtle's pose
 #include<tf/transform_broadcaster.h>
 
 std::string turtle_name;

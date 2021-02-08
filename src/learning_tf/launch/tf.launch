@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <!--生成一只默认name为turtle1的小乌龟-->
+  <node name="sim" pkg="turtlesim" type="turtlesim_node"/>
+  <!--键盘控制turtle1-->
+  <node name="teleop" pkg="turtlesim" type="turtle_teleop_key"/>
+  <!--订阅pose话题，发布坐标系间的坐标变化，rviz可显示坐标变化信息-->
+  <node name="tf_broadcast_1" pkg="learning_tf" type="turtle_tf_broadcaster" args="turtle1"/>
+  <node name="tf_broadcast_2" pkg="learning_tf" type="turtle_tf_broadcaster" args="turtle2"/>
+  <!--订阅坐标系间的变化，发布坐标系变化导致的pose信息变化-->
+  <node name="tf_listen" pkg="learning_tf" type="turtle_tf_listener"/>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find learning_tf)/rviz/tf.rviz"/>
+
+  
+</launch>

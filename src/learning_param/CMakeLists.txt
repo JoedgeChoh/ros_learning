@@ -24,7 +24,7 @@ target_link_libraries(param_cpp ${catkin_LIBRARIES})
 
 install(TARGETS param_cpp
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark cpp header files for installation

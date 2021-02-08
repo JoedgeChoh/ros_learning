@@ -7,7 +7,9 @@ int main(int argc, char **argv) {
     ros::init(argc, argv, "node_name");
     ros::NodeHandle nh;
     ros::NodeHandle private_nh("~");
-    
+    if(nh.hasParam("/a_string")) {
+      ROS_INFO_STREAM("a_string is in launch");
+    }
     /*set local param by nh*/
     nh.setParam("local_nh_set", "local_name");
     if(nh.hasParam("/namespace/local_nh_set")){
