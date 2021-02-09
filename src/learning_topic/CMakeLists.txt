@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   turtlesim
   message_generation
+  dynamic_reconfigure
 )
 
 ## System dependencies are found with CMake's conventions
@@ -90,10 +91,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##     and list every .cfg file to be processed
 
 ## Generate dynamic reconfigure parameters in the 'cfg' folder
-# generate_dynamic_reconfigure_options(
-#   cfg/DynReconf1.cfg
-#   cfg/DynReconf2.cfg
-# )
+generate_dynamic_reconfigure_options(
+   cfg/Velocity.cfg
+   #cfg/DynReconf2.cfg
+)
 
 ###################################
 ## catkin specific configuration ##
@@ -152,7 +153,7 @@ add_executable(person_subscriber src/person_subscriber.cpp)
 ## same as for the library above
 add_dependencies(person_publisher ${PROJECT_NAME}_gencpp)
 add_dependencies(person_subscriber ${PROJECT_NAME}_gencpp)
-
+add_dependencies(velocity_publisher ${PROJECT_NAME}_gencfg)
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
