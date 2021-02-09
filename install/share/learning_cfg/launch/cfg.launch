@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="cfg" pkg="learning_cfg" type="cfg_server" output="screen"/>
+  <node name="rqt" pkg="rqt_reconfigure" type="rqt_reconfigure"/>
+</launch>

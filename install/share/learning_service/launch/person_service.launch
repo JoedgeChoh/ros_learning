@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="person_server" pkg="learning_service" type="person_server" output="screen"/>
+  <node name="person_client" pkg="learning_service" type="person_client" output="screen"/>
+</launch>
