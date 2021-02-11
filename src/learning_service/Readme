@@ -1,7 +1,11 @@
-小海龟服务测试:
-    1. 启动小海龟节点 rosrun turtlesim turtlesim_node
-    2. 启动turtle_command_service节点 rosrun learning_service turtle_command_service
-    3. 终端请求服务 rosservice call /turtle/command
+# README
 
-    return 
-    每次请求小海龟或运动或静止
+## DESCRIPTION
+
+> 小海龟服务测试:
+>
+> 1. 启动小海龟节点 rosrun turtlesim turtlesim_node
+> 2. 启动turtle_command_service节点 rosrun learning_service turtle_command_service
+> 3. 终端请求服务 rosservice call /turtle/command
+
+    return  每次请求小海龟或运动或静止
