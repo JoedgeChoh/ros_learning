@@ -138,7 +138,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/learning_topic_node.cpp)
-# add_executable(velocity_publisher src/turtle_pub.cpp)
+add_executable(velocity_publisher src/turtle_pub.cpp)
 add_executable(pose_subscriber src/pose_subscriber.cpp)
 add_executable(person_publisher src/person_publisher.cpp)
 add_executable(person_subscriber src/person_subscriber.cpp)
@@ -153,13 +153,13 @@ add_executable(person_subscriber src/person_subscriber.cpp)
 ## same as for the library above
 add_dependencies(person_publisher ${PROJECT_NAME}_gencpp)
 add_dependencies(person_subscriber ${PROJECT_NAME}_gencpp)
-# add_dependencies(velocity_publisher ${PROJECT_NAME}_gencfg)
+add_dependencies(velocity_publisher ${PROJECT_NAME}_gencfg)
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-# target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
+target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
 target_link_libraries(pose_subscriber ${catkin_LIBRARIES})
 target_link_libraries(person_publisher ${catkin_LIBRARIES})
 target_link_libraries(person_subscriber ${catkin_LIBRARIES})
@@ -181,7 +181,7 @@ target_link_libraries(person_subscriber ${catkin_LIBRARIES})
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 install(TARGETS 
-  # velocity_publisher
+  velocity_publisher
   pose_subscriber person_publisher
   person_subscriber
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

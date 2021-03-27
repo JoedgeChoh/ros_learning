@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="learning_cfg" pkg="learning_cfg" type="learning_cfg">
+  <param name="int_param" type="int" value="50" />
+  <param name="double_param" type="double" value="0.5" />
+  <param name="str_param" type="str" value="helloworld" />
+  <param name="bool_param" type="bool" value="True" />
+  <param name="size" type="int" value="1" />
+</node>
+\endverbatim
+
