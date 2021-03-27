@@ -1,0 +1,11 @@
+<library path="lib/libsimple_duck_plugin">
+  <class type="learning_plugin::SimpleDuck" base_class_type="learning_plugin::Duck">
+    <description>a simple duck</description>
+  </class>
+</library>
+
+<library path="lib/libhappy_duck_plugin">
+  <class type="learning_plugin::HappyDuck" base_class_type="learning_plugin::Duck">
+    <description>a happy duck</description>
+  </class>
+</library>
