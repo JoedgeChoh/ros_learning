@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="topic_pub" pkg="multi_thread_demo" type="multi_topic_pub" output="screen"/>
+  <node name="topic_sub" pkg="multi_thread_demo" type="multi_thread_listener3" output="screen"/>
+</launch>

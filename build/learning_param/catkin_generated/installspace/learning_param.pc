@@ -1,8 +1,0 @@
-prefix=/home/zhuhe/zhuhe/ros_learning/install
-
-Name: learning_param
-Description: Description of learning_param
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp rospy std_msgs

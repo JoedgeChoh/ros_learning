@@ -1,8 +1,0 @@
-\subsubsection usage Usage
-\verbatim
-<node name="learning_topic" pkg="learning_topic" type="learning_topic">
-  <param name="linear" type="double" value="0.5" />
-  <param name="angle" type="double" value="0.2" />
-</node>
-\endverbatim
-

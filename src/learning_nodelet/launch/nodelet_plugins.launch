@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="manager_name" default="nodelet_manager" />
-
+  <!--start Nodelet maneger-->
   <node pkg="nodelet" type="nodelet" name="$(arg manager_name)" args="manager" output="screen" />
-
+  <!--load plugins-->
   <node pkg="nodelet" type="nodelet" name="nodeletTalker"
         args="load learning_nodelet/nodeletTalker $(arg manager_name)" >
   </node> 

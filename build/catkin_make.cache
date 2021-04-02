@@ -1,2 +1,0 @@
-learning_cfg:learning_launch:learning_nodelet:learning_param:learning_plugin:learning_service:learning_tf:learning_topic
--DCATKIN_DEVEL_PREFIX=/home/zhuhe/zhuhe/ros_learning/devel -DCMAKE_INSTALL_PREFIX=/home/zhuhe/zhuhe/ros_learning/install -G Unix Makefiles

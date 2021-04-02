@@ -1,0 +1,8 @@
+prefix=/home/zhuhe/zhuhe/ros_learning/install
+
+Name: multi_thread_demo
+Description: Description of multi_thread_demo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lros_msg
+Requires: roscpp rospy std_msgs
