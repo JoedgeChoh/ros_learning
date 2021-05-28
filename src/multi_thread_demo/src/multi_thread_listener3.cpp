@@ -53,7 +53,7 @@
         //第四步: 执行自定义队列中的回调函数. 
             // CallbackQueue类有两种调用内部回调的方法:callAvailable()和callOne()。
             // callAvailable()将获取队列中当前的所有内容并调用它们。callOne()将简单地调用队列上最古老的回调。
-        g_queue.callAvailable(ros::WallDuration(0.01));  
+        g_queue.callAvailable(ros::WallDuration(0.5));  
         //g_queue.callOne(ros::WallDuration(0.01));  
       }
     }
@@ -64,13 +64,9 @@
       ros::NodeHandle n;
      
       /**
-       * The SubscribeOptions structure lets you specify a custom queue to use for a specific 
-       * subscription. SubscribeOptions结构允许您指定用于特定订阅的自定义队列
-       * You can also set a default queue on a NodeHandle using the 
-       * NodeHandle::setCallbackQueue() function. 
-           * 还可以使用NodeHandle::setCallbackQueue()函数在节点句柄上设置默认队列
+       * SubscribeOptions结构允许您指定用于特定订阅的自定义队列
+       * 还可以使用NodeHandle::setCallbackQueue()函数在节点句柄上设置默认队列
        *
-       * AdvertiseOptions and AdvertiseServiceOptions offer similar functionality.
        * 对于话题发布者, 有 AdvertiseOptions 和 AdvertiseServiceOptions  可以使用
        */
       //第二步: 声明订阅或者发布选项, 然后和订阅器/发布器绑定在一起  
@@ -83,9 +79,9 @@
       //第三步: 声明线程.此时主进程与此进程并行进行
       boost::thread chatter_thread(callbackThread); 
       ROS_INFO_STREAM("Main thread id=" << boost::this_thread::get_id());
-      //首先是chatter——thread在触发回调，当运行到此处时，spinOnce锁住进程触发sub2主回调，完成后解锁，并有1s的时间缓冲
+      //首先是chatter——thread在触发回调，当运行到此处时，spinOnce锁住进程触发sub2主回调，完成后解锁，并有2s的时间缓冲
       //缓冲期间内chatter——thread再次触发回调，直到spinOnce再次锁住a
-      ros::Rate r(1);
+      ros::Rate r(0.5);
       while (n.ok())
       {
         ros::spinOnce(); 

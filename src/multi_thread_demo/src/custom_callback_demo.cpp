@@ -36,7 +36,7 @@ void callbackThread()
   ros::NodeHandle n;
   while (n.ok())
   {
-    g_queue.callAvailable(ros::WallDuration(0.5));
+    g_queue.callAvailable(ros::WallDuration(0.5));// 在0.5s内等待回调有效，若开始就有效，无需等待
   }
 }
 
